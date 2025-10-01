@@ -1,16 +1,16 @@
 ---
+import { Palette } from "../components/palette";
+import Layout from "../layouts/layout.astro";
+import Grid from "../components/grid.astro";
+import Footer from "../components/footer.astro";
+import { getImages } from "../utils/getImages";
 
+const images = await getImages();
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<!-- Hex codes: antique white #F4F1DE, terra cotta #E07A5F, deep slate blue #3D405B, muted sage green #81B29A -->
+<Layout title="Color Palette">
+  <Palette client:load transition:persist />
+  <Grid images={images} />
+  <Footer />
+</Layout>

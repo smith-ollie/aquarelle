@@ -1,0 +1,35 @@
+---
+import Image from "astro/components/Image.astro";
+
+interface Props {
+  images?: Awaited<ReturnType<typeof import("../utils/getImages").getImages>>;
+}
+
+const { images } = Astro.props;
+---
+
+<div class="container flex-1 px-4">
+  <div
+    class="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] min-w-full gap-10 relative"
+  >
+    {
+      images?.map(({ image, meta }) => {
+        return (
+          <div class="grid-item aspect-1/1">
+            <a href={`/${meta.name}`}>
+              <Image
+                src={image}
+                width={400}
+                height={400}
+                layout="responsive"
+                class="w-full object-cover object-center border border-black/10 rounded-sm"
+                alt={meta?.frontmatter?.alt || ""}
+              />
+            </a>
+          </div>
+        );
+      })
+    }
+    <slot />
+  </div>
+</div>

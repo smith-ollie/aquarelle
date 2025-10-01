@@ -1,0 +1,20 @@
+@import "tailwindcss";
+@import "@fontsource/archivo-black";
+
+
+@font-face {
+    font-family: 'Blackout';
+    src: url('/fonts/blackout_sunrise-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@theme {
+    --font-ArchivoBlack: "Archivo Black", ui-sans-serif, system-ui, sans-serif;
+    --font-Blackout: "Blackout", ui-sans-serif, system-ui, sans-serif;
+}
+
+body,
+html {
+    height: 100%;
+}

@@ -1,5 +1,17 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
+import glsl from "vite-plugin-glsl";
+
+import react from "@astrojs/react";
+
+import tailwindcss from "@tailwindcss/vite";
+
+import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
-export default defineConfig({});
+export default defineConfig({
+  vite: {
+    plugins: [tailwindcss()],
+  },
+  integrations: [react({ experimentalReactChildren: true }), mdx()],
+});

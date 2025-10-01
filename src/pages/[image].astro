@@ -1,0 +1,60 @@
+---
+import AstroImage from "astro/components/Image.astro";
+import { Palette } from "../components/palette";
+import Layout from "../layouts/layout.astro";
+import Grid from "../components/grid.astro";
+import { Dialog } from "../components/dialog";
+import { getImages } from "../utils/getImages";
+import Footer from "../components/footer.astro";
+import { PrevIcon } from "../icons/prev";
+import { NextIcon } from "../icons/next";
+
+export async function getStaticPaths() {
+  const images = await getImages();
+
+  return images.map(({ image, meta }) => {
+    return {
+      params: { image: meta.name || "" },
+      props: { image, meta, images },
+    };
+  });
+}
+
+const { image, images, meta } = Astro.props;
+---
+
+<!-- Hex codes: antique white #F4F1DE, terra cotta #E07A5F, deep slate blue #3D405B, muted sage green #81B29A -->
+<Layout title="Color Palette">
+  <Palette client:load transition:persist />
+  <Grid images={images} />
+  <Footer />
+  <Dialog slot="image" title={meta.name} client:load>
+    <div
+      class="flex flex-wrap items-end gap-2 @[1000px]:items-center justify-between w-full h-full aspect-[16/9]"
+    >
+      {
+        Number(meta.name) > 1 && (
+          <a class="cursor-pointer" href={(Number(meta.name) - 1).toString()}>
+            <PrevIcon />
+          </a>
+        )
+      }
+      <AstroImage
+        src={image}
+        width={1000}
+        class="object-contain object-center flex-1 basis-full @[1000px]:basis-0 max-h-full order-first @[1000px]:order-none"
+        alt=""
+      />
+      {
+        Number(meta.name) < images.length && (
+          <a
+            class="cursor-pointer flex justify-end"
+            href={(Number(meta.name) + 1).toString()}
+          >
+            <NextIcon />
+          </a>
+        )
+      }
+    </div>
+  </Dialog>
+</Layout>

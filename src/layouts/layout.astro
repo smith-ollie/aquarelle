@@ -1,0 +1,28 @@
+---
+import { ClientRouter } from "astro:transitions";
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+}
+---
+
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" />
+    <meta name="viewport" content="width=device-width" />
+    <meta property="og:image" content="https://olliesmith.dev/og-image.png" />
+    <meta name="theme-color" content="#3e3e3e" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <ClientRouter />
+  </head>
+  <body class="bg-[#F2F0EF] @container">
+    <div class="flex flex-col items-center gap-10 min-h-screen">
+      <slot />
+    </div>
+    <slot name="image" />
+  </body>
+</html>

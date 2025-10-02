@@ -68,24 +68,9 @@ jobs:
         working-directory: ${{ env.BUILD_PATH }}
       - name: Build with Astro
         env:
-          SITE_BASE_URL: ${{ steps.pages.outputs.base_url }}
+          SITE_URL: ${{ steps.pages.outputs.origin }}
+          BASE_URL: ${{ steps.pages.outputs.base_path }}
         run: |
-          echo "SITE_BASE_URL=${{ steps.pages.outputs.base_url }}"
-          echo "steps.pages.outputs.origin=${{ steps.pages.outputs.origin }}"
-          echo "steps.pages.outputs.base_path=${{ steps.pages.outputs.base_path }}"
-          echo "steps.pages.outputs.base_url=${{ steps.pages.outputs.base_url }}"
-          echo "steps.pages.outputs.branch=${{ steps.pages.outputs.branch }}"
-          echo "steps.pages.outputs.token=${{ steps.pages.outputs.token }}"
-          echo "steps.pages.outputs.repository=${{ steps.pages.outputs.repository }}"
-          echo "steps.pages.outputs.actor=${{ steps.pages.outputs.actor }}"
-          echo "steps.pages.outputs.commit=${{ steps.pages.outputs.commit }}"
-          echo "steps.pages.outputs.workflow_sha=${{ steps.pages.outputs.workflow_sha }}"
-          echo "steps.pages.outputs.workflow_ref=${{ steps.pages.outputs.workflow_ref }}"
-          echo "steps.pages.outputs.workflow_name=${{ steps.pages.outputs.workflow_name }}"
-          echo "steps.pages.outputs.workflow_file_name=${{ steps.pages.outputs.workflow_file_name }}"
-          echo "steps.pages.outputs.workflow_run_id=${{ steps.pages.outputs.workflow_run_id }}"
-          echo "steps.pages.outputs.workflow_run_number=${{ steps.pages.outputs.workflow_run_number }}"
-          echo "steps.pages.outputs.workflow_run_attempt=${{ steps.pages.outputs.workflow_run_attempt }}"
           ${{ steps.detect-package-manager.outputs.runner }} astro build \
             --site "${{ steps.pages.outputs.origin }}" \
             --base "${{ steps.pages.outputs.base_path }}"

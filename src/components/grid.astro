@@ -16,7 +16,12 @@ const { images } = Astro.props;
       images?.map(({ image, meta }) => {
         return (
           <div class="grid-item aspect-1/1">
-            <a href={`/${meta.name}`}>
+            <a
+              href={`${import.meta.env.BASE_URL}/${meta.name}`.replaceAll(
+                "//",
+                "/"
+              )}
+            >
               <Image
                 src={image}
                 width={400}

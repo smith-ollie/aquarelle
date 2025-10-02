@@ -32,7 +32,7 @@ export const Dialog = ({
   }, []);
 
   const handleClose = () => {
-    navigate("/");
+    navigate("..");
   };
 
   return (

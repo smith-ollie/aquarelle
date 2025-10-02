@@ -13,5 +13,6 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+  site: process.env.SITE_BASE_URL || '',
   integrations: [react({ experimentalReactChildren: true }), mdx()],
 });

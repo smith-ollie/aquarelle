@@ -81,7 +81,7 @@ export const Palette = ({ children }: React.PropsWithChildren<{}>) => {
               <motion.feGaussianBlur
                 in="SourceGraphic"
                 // stdDeviation="100"
-                animate={{ stdDeviation: 150 }}
+                animate={{ stdDeviation: 15 }}
                 initial={{ stdDeviation: 0 }}
                 transition={{ duration: 5, ease: "easeInOut", delay: 2 }}
                 result="blurredSource"
@@ -91,7 +91,7 @@ export const Palette = ({ children }: React.PropsWithChildren<{}>) => {
               <motion.feDisplacementMap
                 in="blurredSource"
                 in2="noiseMap"
-                animate={{ attrScale: 300 }}
+                animate={{ attrScale: 500 }}
                 initial={{ attrScale: 0 }}
                 transition={{ duration: 5, ease: "easeInOut", delay: 1 }}
                 xChannelSelector="R"

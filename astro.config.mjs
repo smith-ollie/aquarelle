@@ -13,7 +13,7 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   site: process.env.SITE_URL || 'http://localhost',
-  base: process.env.BASE_URL || '/',
+  base: process.env.BASE_URL || '',
 
   integrations: [react({ experimentalReactChildren: true }), mdx()],
 });

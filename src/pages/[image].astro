@@ -30,13 +30,16 @@ const { image, images, meta } = Astro.props;
   <Footer />
   <Dialog slot="image" title={meta.name} client:load>
     <div
-      class="flex flex-wrap items-end gap-2 @[1000px]:items-center justify-between w-full h-full aspect-[16/9]"
+      class="flex items-end flex-wrap h-full gap-2 @[1000px]:items-center justify-between w-full aspect-[16/9]"
     >
       {
         Number(meta.name) > 1 && (
           <a
             class="cursor-pointer"
-            href={`${import.meta.env.BASE_URL}/${(Number(meta.name) - 1).toString().replaceAll("//", "/")}`}
+            href={`${import.meta.env.BASE_URL}/${(Number(meta.name) - 1).toString()}`.replaceAll(
+              "//",
+              "/"
+            )}
           >
             <PrevIcon />
           </a>
@@ -52,7 +55,10 @@ const { image, images, meta } = Astro.props;
         Number(meta.name) < images.length && (
           <a
             class="cursor-pointer flex justify-end"
-            href={`${import.meta.env.BASE_URL}/${(Number(meta.name) + 1).toString().replaceAll("//", "/")}`}
+            href={`${import.meta.env.BASE_URL}/${(Number(meta.name) + 1).toString()}`.replaceAll(
+              "//",
+              "/"
+            )}
           >
             <NextIcon />
           </a>

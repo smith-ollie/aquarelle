@@ -1,4 +1,9 @@
-import React, { useCallback, useLayoutEffect, useRef, type ReactNode } from "react";
+import React, {
+  useCallback,
+  useLayoutEffect,
+  useRef,
+  type ReactNode,
+} from "react";
 import { navigate } from "astro:transitions/client";
 import { CloseIcon } from "../icons/close";
 
@@ -45,18 +50,20 @@ export const Dialog = ({
       ></div>
       <dialog
         ref={dialogRef}
-        className="@[1000px]:top-1/2 @[1000px]:left-1/2 outline-none h-screen max-h-full @[1000px]:h-[80vh] flex flex-col @[1000px]:-translate-x-1/2 @[1000px]:-translate-y-1/2 bg-white px-6 pb-6 pt-4 @[1000px]:rounded-lg max-w-4xl w-full shadow-lg"
+        className="@[1000px]:top-1/2 @[1000px]:left-1/2 outline-none h-screen max-h-full @[1000px]:h-[80vh] @[1000px]:-translate-x-1/2 @[1000px]:-translate-y-1/2 bg-white px-6 pb-6 pt-4 @[1000px]:rounded-lg max-w-4xl w-full shadow-lg"
         onClose={() => {
           handleClose();
         }}
       >
-        <div className="flex justify-between">
-          <h1 className="font-ArchivoBlack text-4xl">{title}</h1>
-          <button onClick={handleClose} className="cursor-pointer">
-            <CloseIcon className="size-8" />
-          </button>
+        <div className="h-full flex flex-col">
+          <div className="flex justify-between">
+            <h1 className="font-ArchivoBlack text-4xl">{title}</h1>
+            <button onClick={handleClose} className="cursor-pointer">
+              <CloseIcon className="size-8" />
+            </button>
+          </div>
+          <div className="flex-1">{children}</div>
         </div>
-        {children}
       </dialog>
     </>
   );

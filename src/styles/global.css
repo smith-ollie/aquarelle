@@ -14,6 +14,10 @@
     --font-Blackout: "Blackout", ui-sans-serif, system-ui, sans-serif;
 }
 
+:root:has(.no-scroll) {
+  overflow: hidden;
+}
+
 body,
 html {
     height: 100%;

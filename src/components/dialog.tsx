@@ -43,7 +43,7 @@ export const Dialog = ({
   return (
     <>
       <div
-        className="fixed inset-0 bg-black/25 z-50 backdrop-blur-xs"
+        className="fixed inset-0 bg-black/25 z-50 backdrop-blur-xs no-scroll"
         onClick={() => {
           handleClose();
         }}

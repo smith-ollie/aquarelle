@@ -21,6 +21,8 @@ export async function getStaticPaths() {
 }
 
 const { image, images, meta } = Astro.props;
+
+console.log(meta);
 ---
 
 <!-- Hex codes: antique white #F4F1DE, terra cotta #E07A5F, deep slate blue #3D405B, muted sage green #81B29A -->
@@ -49,7 +51,7 @@ const { image, images, meta } = Astro.props;
         src={image}
         width={1000}
         class="object-contain object-center flex-1 basis-full @[1000px]:basis-0 max-h-full order-first @[1000px]:order-none"
-        alt=""
+        alt={meta?.frontmatter?.alt || ""}
       />
       {
         Number(meta.name) < images.length && (

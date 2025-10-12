@@ -1,0 +1,14 @@
+---
+import { Palette } from "./palette";
+import Wordmark from "./wordmark.astro";
+---
+
+<header
+  class="w-full bg-[linear-gradient(to_right,#e76f51_0%,#e76f51_50%,#264653_50%,#264653_100%)] flex justify-center"
+>
+  <div class="container">
+    <Palette client:load transition:persist>
+      <Wordmark />
+    </Palette>
+  </div>
+</header>

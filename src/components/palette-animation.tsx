@@ -19,7 +19,7 @@ export default function PaletteAnimation() {
 
   return (
     <Palette colors={colorSets[index]} key={colorSets[index].toString()}>
-      <div className="h-screen"></div>
+      <div className="h-screen">&nbsp;</div>
     </Palette>
   );
 }

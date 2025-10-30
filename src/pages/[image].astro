@@ -1,6 +1,5 @@
 ---
 import AstroImage from "astro/components/Image.astro";
-import { Palette } from "../components/palette";
 import Layout from "../layouts/layout.astro";
 import Grid from "../components/grid.astro";
 import { Dialog } from "../components/dialog";
@@ -8,6 +7,7 @@ import { getImages } from "../utils/getImages";
 import Footer from "../components/footer.astro";
 import { PrevIcon } from "../icons/prev";
 import { NextIcon } from "../icons/next";
+import Header from "../components/header.astro";
 
 export async function getStaticPaths() {
   const images = await getImages();
@@ -25,7 +25,7 @@ const { image, images, meta } = Astro.props;
 
 <!-- Hex codes: antique white #F4F1DE, terra cotta #E07A5F, deep slate blue #3D405B, muted sage green #81B29A -->
 <Layout title="Color Palette">
-  <Palette client:load transition:persist />
+  <Header />
   <Grid images={images} />
   <Footer />
   <Dialog slot="image" title={meta.name} client:load>

@@ -21,8 +21,6 @@ type PaletteProps = React.PropsWithChildren<{
 export const Palette = ({ children, colors = defaultColors }: PaletteProps) => {
   const rectWidth = 100 / colors.length;
 
-  console.log(rectWidth);
-
   return (
     <div className="w-full relative">
       <svg className="absolute inset-y-0 h-full w-full">

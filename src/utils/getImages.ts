@@ -1,3 +1,4 @@
+import type { LocalImageProps } from "astro/assets";
 import fs from "node:fs";
 import path from "path";
 
@@ -6,7 +7,7 @@ export const getImages = async () => {
     "/src/content/art/**/*.png"
   );
 
-  let markdown = import.meta.glob<{ frontmatter: { alt?: string } }>(
+  let markdown = import.meta.glob<{ frontmatter: { alt?: string, 'thumbnail-position'?: string } }>(
     "/src/content/art/**/*.mdx"
   );
 

@@ -27,7 +27,8 @@ const { images } = Astro.props;
                 width={400}
                 height={400}
                 layout="responsive"
-                class="w-full object-cover object-center border border-black/10 rounded-sm"
+                position={meta?.frontmatter?.["thumbnail-position"] || "center"}
+                class="size-full object-cover object-center border border-black/10 rounded-sm"
                 alt={meta?.frontmatter?.alt || ""}
               />
             </a>

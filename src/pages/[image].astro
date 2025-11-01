@@ -30,7 +30,7 @@ const { image, images, meta } = Astro.props;
   <Footer />
   <Dialog slot="image" title={meta.name} client:load>
     <div
-      class="flex items-end flex-wrap h-full gap-2 @[1000px]:items-center justify-between w-full aspect-[16/9]"
+      class="flex items-end flex-wrap @[1000px]:flex-nowrap h-full gap-2 @[1000px]:items-center justify-between w-full aspect-[16/9]"
     >
       {
         Number(meta.name) > 1 && (

@@ -1,0 +1,23 @@
+---
+import { clsx } from "clsx";
+
+const currentPath = Astro.url.pathname;
+
+interface Props {
+  href: string;
+}
+
+const { href } = Astro.props;
+
+const isActive = currentPath === href;
+---
+
+<a
+  href={href}
+  class={clsx("px-1.5 py-0.5 rounded-md font-Archivo", {
+    "bg-[#F2F0EF] border-teal-bright border": isActive,
+    "text-[#F2F0EF]": !isActive,
+  })}
+>
+  <slot />
+</a>

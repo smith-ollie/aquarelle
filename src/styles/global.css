@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "@fontsource/archivo-black";
+@import "@fontsource/archivo";
 
 
 @font-face {
@@ -10,7 +11,18 @@
 }
 
 @theme {
+    --color-forest-green: #264653;
+    --color-teal-dark: #275c62;
+    --color-teal-medium: #287271;
+    --color-teal-bright: #2a9d8f;
+    --color-sage-green: #8ab17d;
+    --color-golden-yellow: #e9c46a;
+    --color-amber: #efb366;
+    --color-orange-light: #f4a261;
+    --color-coral: #ee8959;
+    --color-red-orange: #e76f51;
     --font-ArchivoBlack: "Archivo Black", ui-sans-serif, system-ui, sans-serif;
+    --font-Archivo: "Archivo", ui-sans-serif, system-ui, sans-serif;
     --font-Blackout: "Blackout", ui-sans-serif, system-ui, sans-serif;
 }
 

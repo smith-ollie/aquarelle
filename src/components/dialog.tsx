@@ -37,7 +37,14 @@ export const Dialog = ({
   }, []);
 
   const handleClose = () => {
-    navigate("..");
+    const currentPath = window.location.pathname;
+
+    const segments = currentPath.split("/").filter(Boolean);
+    segments.pop();
+
+    const parentPath = "/" + segments.join("/");
+
+    navigate(parentPath);
   };
 
   return (

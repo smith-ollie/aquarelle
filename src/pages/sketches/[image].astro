@@ -1,17 +1,17 @@
 ---
 import AstroImage from "astro/components/Image.astro";
-import Layout from "../layouts/layout.astro";
-import Grid from "../components/grid.astro";
-import { Dialog } from "../components/dialog";
-import { getPaintings } from "../utils/getPaintings";
-import Footer from "../components/footer.astro";
-import { PrevIcon } from "../icons/prev";
-import { NextIcon } from "../icons/next";
-import Header from "../components/header.astro";
-import Nav from "../components/nav.astro";
+import Layout from "../../layouts/layout.astro";
+import Grid from "../../components/grid.astro";
+import { Dialog } from "../../components/dialog";
+import { getSketches } from "../../utils/getSketches";
+import Footer from "../../components/footer.astro";
+import { PrevIcon } from "../../icons/prev";
+import { NextIcon } from "../../icons/next";
+import Header from "../../components/header.astro";
+import Nav from "../../components/nav.astro";
 
 export async function getStaticPaths() {
-  const images = await getPaintings();
+  const images = await getSketches();
 
   return images.map(({ image, meta }) => {
     return {
@@ -38,7 +38,7 @@ const { image, images, meta } = Astro.props;
         Number(meta.name) > 1 && (
           <a
             class="cursor-pointer"
-            href={`${import.meta.env.BASE_URL}/${(Number(meta.name) - 1).toString()}`.replaceAll(
+            href={`${import.meta.env.BASE_URL}/sketches/${(Number(meta.name) - 1).toString()}`.replaceAll(
               "//",
               "/"
             )}
@@ -57,7 +57,7 @@ const { image, images, meta } = Astro.props;
         Number(meta.name) < images.length && (
           <a
             class="cursor-pointer flex justify-end"
-            href={`${import.meta.env.BASE_URL}/${(Number(meta.name) + 1).toString()}`.replaceAll(
+            href={`${import.meta.env.BASE_URL}/sketches/${(Number(meta.name) + 1).toString()}`.replaceAll(
               "//",
               "/"
             )}

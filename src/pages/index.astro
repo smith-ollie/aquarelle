@@ -1,17 +1,18 @@
 ---
-import { Palette } from "../components/palette";
 import Layout from "../layouts/layout.astro";
 import Grid from "../components/grid.astro";
 import Footer from "../components/footer.astro";
-import { getImages } from "../utils/getImages";
+import { getPaintings } from "../utils/getPaintings";
 import Header from "../components/header.astro";
+import Nav from "../components/nav.astro";
 
-const images = await getImages();
+const images = await getPaintings();
 ---
 
 <!-- Hex codes: antique white #F4F1DE, terra cotta #E07A5F, deep slate blue #3D405B, muted sage green #81B29A -->
 <Layout title="Color Palette">
   <Header />
+  <Nav />
   <Grid images={images} />
   <Footer />
 </Layout>

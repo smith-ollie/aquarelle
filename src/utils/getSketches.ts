@@ -1,17 +1,18 @@
-import type { LocalImageProps } from "astro/assets";
 import fs from "node:fs";
 import path from "path";
 
-export const getImages = async () => {
+const sketchesPath = "/src/content/sketches"
+
+export const getSketches = async () => {
   let images = import.meta.glob<{ default: ImageMetadata }>(
-    "/src/content/art/**/*.png"
+    `/src/content/sketches/**/*.(png|jpg)`
   );
 
   let markdown = import.meta.glob<{ frontmatter: { alt?: string, 'thumbnail-position'?: string } }>(
-    "/src/content/art/**/*.mdx"
+    `/src/content/sketches/**/*.mdx`
   );
 
-  const postsDirectory = path.join(process.cwd(), "src/content/art");
+  const postsDirectory = path.join(process.cwd(), sketchesPath);
 
   const files = fs
     .readdirSync(postsDirectory)
@@ -22,12 +23,12 @@ export const getImages = async () => {
     image:
       images[
         Object.keys(images).find((key) =>
-          key.includes(`/src/content/art/${file}`)
+          key.includes(`${sketchesPath}/${file}`)
         )!
       ],
     meta: markdown[
       Object.keys(markdown).find((key) =>
-        key.includes(`/src/content/art/${file}`)
+        key.includes(`${sketchesPath}/${file}`)
       )!
     ],
     name: file,

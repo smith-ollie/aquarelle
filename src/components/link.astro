@@ -14,9 +14,9 @@ const isActive = currentPath === href;
 
 <a
   href={href}
-  class={clsx("px-1.5 py-0.5 rounded-md font-Archivo", {
-    "bg-[#F2F0EF] border-teal-bright border": isActive,
-    "text-[#F2F0EF]": !isActive,
+  class={clsx("px-2.5 py-1 rounded-lg font-Archivo border", {
+    "bg-[#F2F0EF] border-teal-bright": isActive,
+    "border-transparent": !isActive,
   })}
 >
   <slot />

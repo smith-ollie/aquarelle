@@ -9,13 +9,9 @@ interface Props {
 
 const { href } = Astro.props;
 
-const isActive =
-  currentPath.replaceAll("/", "") ===
-  `${import.meta.env.BASE_URL}${href}`.replaceAll("/", "");
+const isActive = currentPath.replace(/\/$/, "") === href.replace(/\/$/, "");
 ---
 
-current: {currentPath}
-constructed: {href}
 <a
   href={href}
   class={clsx("px-2.5 py-1 rounded-lg font-Archivo border", {

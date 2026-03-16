@@ -50,7 +50,7 @@ const { image, images, meta } = Astro.props;
       <AstroImage
         src={image}
         width={1000}
-        class="object-contain object-center flex-1 basis-full @[1000px]:basis-0 max-h-full order-first @[1000px]:order-none"
+        class="object-contain object-center flex-1 basis-full @[1000px]:basis-0 max-h-full order-first @[1000px]:order-none min-w-0"
         alt={meta?.frontmatter?.alt || ""}
       />
       {

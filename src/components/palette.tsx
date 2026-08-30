@@ -22,7 +22,7 @@ export const Palette = ({ children, colors = defaultColors }: PaletteProps) => {
   const rectWidth = 100 / colors.length;
 
   return (
-    <div className="w-full relative">
+    <div className="w-full relative h-5">
       <svg className="absolute inset-y-0 h-full w-full">
         <defs>
           <clipPath id="rectangles-clip">
@@ -70,7 +70,7 @@ export const Palette = ({ children, colors = defaultColors }: PaletteProps) => {
             />
             <motion.feGaussianBlur
               in="SourceGraphic"
-              animate={{ stdDeviation: 15 }}
+              animate={{ stdDeviation: 500 }}
               initial={{ stdDeviation: 0 }}
               transition={{ duration: 5, ease: "easeInOut", delay: 2 }}
               result="blurredSource"
@@ -78,7 +78,7 @@ export const Palette = ({ children, colors = defaultColors }: PaletteProps) => {
             <motion.feDisplacementMap
               in="blurredSource"
               in2="noiseMap"
-              animate={{ attrScale: 500 }}
+              animate={{ attrScale: 100 }}
               initial={{ attrScale: 0 }}
               transition={{ duration: 5, ease: "easeInOut", delay: 1 }}
               xChannelSelector="R"

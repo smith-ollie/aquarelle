@@ -1,6 +1,9 @@
 @import "tailwindcss";
 @import "@fontsource/archivo-black";
 @import "@fontsource/archivo";
+@import "@fontsource/league-spartan/300.css";
+@import "@fontsource/league-spartan";
+
 
 
 @font-face {
@@ -22,9 +25,12 @@
     --color-orange-light: #f4a261;
     --color-coral: #ee8959;
     --color-red-orange: #e76f51;
+    --color-black: #1A1C1E;
+    --color-accent: #9D7332;
     --font-ArchivoBlack: "Archivo Black", ui-sans-serif, system-ui, sans-serif;
     --font-Archivo: "Archivo", ui-sans-serif, system-ui, sans-serif;
     --font-Blackout: "Blackout", ui-sans-serif, system-ui, sans-serif;
+    --font-LeagueSpartan: "League Spartan", ui-sans-serif, system-ui, sans-serif;
 }
 
 :root:has(.no-scroll) {

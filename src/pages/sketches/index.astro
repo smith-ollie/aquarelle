@@ -4,7 +4,6 @@ import Grid from "../../components/grid.astro";
 import Footer from "../../components/footer.astro";
 import { getSketches } from "../../utils/getSketches";
 import Header from "../../components/header.astro";
-import Nav from "../../components/nav.astro";
 
 const images = await getSketches();
 ---
@@ -12,7 +11,6 @@ const images = await getSketches();
 <!-- Hex codes: antique white #F4F1DE, terra cotta #E07A5F, deep slate blue #3D405B, muted sage green #81B29A -->
 <Layout title="Color Palette">
   <Header />
-  <Nav />
   <Grid images={images} baseUrl="sketches" />
   <Footer />
 </Layout>

@@ -14,10 +14,13 @@ const isActive = currentPath.replace(/\/$/, "") === href.replace(/\/$/, "");
 
 <a
   href={href}
-  class={clsx("px-2.5 py-1 rounded-lg font-Archivo border", {
-    "bg-[#F2F0EF] border-teal-bright": isActive,
-    "border-transparent": !isActive,
-  })}
+  class={clsx(
+    "pb-2  font-Archivo text-sm tracking-widest text-black/50 uppercase",
+    {
+      "border-b-2 border-accent text-black!": isActive,
+      "border-transparent": !isActive,
+    },
+  )}
 >
   <slot />
 </a>

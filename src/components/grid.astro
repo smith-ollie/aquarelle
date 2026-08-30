@@ -18,11 +18,12 @@ const { images, baseUrl } = Astro.props;
     {
       images?.map(({ image, meta }) => {
         return (
-          <div class="grid-item aspect-1/1">
+          <div class="grid-item border border-black/10 p-2">
             <a
+              class="block aspect-16/10"
               href={`${import.meta.env.BASE_URL}/${baseUrl ? `${baseUrl}/` : ""}${meta.name}`.replaceAll(
                 "//",
-                "/"
+                "/",
               )}
             >
               <Image
@@ -31,7 +32,20 @@ const { images, baseUrl } = Astro.props;
                 height={400}
                 layout="responsive"
                 position={meta?.frontmatter?.["thumbnail-position"] || "center"}
-                class="size-full object-cover object-center border border-black/10 rounded-sm"
+                class={`size-full object-cover ${
+                  {
+                    "right top": "object-top-right",
+                    "left top": "object-top-left",
+                    "right bottom": "object-bottom-right",
+                    "left bottom": "object-bottom-left",
+                    center: "object-center",
+                    top: "object-top-right",
+                  }[
+                    meta?.frontmatter?.["thumbnail-position"]
+                      ?.toString()
+                      .trim() || "center"
+                  ] ?? "object-center"
+                }`}
                 alt={meta?.frontmatter?.alt || ""}
               />
             </a>

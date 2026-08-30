@@ -1,14 +1,19 @@
 ---
 import { Palette } from "./palette";
 import Wordmark from "./wordmark.astro";
+import Nav from "./nav.astro";
 ---
 
-<header
-  class="w-full bg-[linear-gradient(to_right,#e76f51_0%,#e76f51_50%,#264653_50%,#264653_100%)] flex justify-center"
->
-  <div class="container">
-    <Palette client:load transition:persist>
-      <Wordmark />
-    </Palette>
+<header class="w-full flex flex-col items-center">
+  <div
+    class="w-full bg-[linear-gradient(to_right,#e76f51_0%,#e76f51_50%,#264653_50%,#264653_100%)] flex justify-center"
+  >
+    <div class="container">
+      <Palette client:load transition:persist />
+    </div>
+  </div>
+  <div class="container py-8 px-4 flex justify-between items-end">
+    <Wordmark />
+    <Nav />
   </div>
 </header>

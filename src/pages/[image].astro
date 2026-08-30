@@ -27,7 +27,6 @@ const { image, images, meta } = Astro.props;
 <!-- Hex codes: antique white #F4F1DE, terra cotta #E07A5F, deep slate blue #3D405B, muted sage green #81B29A -->
 <Layout title="Color Palette">
   <Header />
-  <Nav />
   <Grid images={images} />
   <Footer />
   <Dialog slot="image" title={meta.name} client:load>
@@ -40,7 +39,7 @@ const { image, images, meta } = Astro.props;
             class="cursor-pointer"
             href={`${import.meta.env.BASE_URL}/${(Number(meta.name) - 1).toString()}`.replaceAll(
               "//",
-              "/"
+              "/",
             )}
           >
             <PrevIcon />
@@ -59,7 +58,7 @@ const { image, images, meta } = Astro.props;
             class="cursor-pointer flex justify-end"
             href={`${import.meta.env.BASE_URL}/${(Number(meta.name) + 1).toString()}`.replaceAll(
               "//",
-              "/"
+              "/",
             )}
           >
             <NextIcon />
